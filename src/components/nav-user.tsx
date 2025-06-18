@@ -1,12 +1,10 @@
 "use client";
 
-import { BadgeCheck, ChevronsUpDown, LogOut } from "lucide-react";
-
+import { ChevronsUpDown, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -21,14 +19,11 @@ import {
 import { logout } from "@/app/actions/auth";
 
 export function NavUser({
-  user,
+  username,
+  email,
 }: {
-    user: {
-      id: string;
-      username: string;
-      email: string;
-      expiresAt: string;
-    } | null;
+  username?: string;
+  email?: string;
 }) {
   const { isMobile } = useSidebar();
 
@@ -42,17 +37,13 @@ export function NavUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                {/* <AvatarImage src={user.image} alt={user.username} /> */}
-                {/* <AvatarFallback className="rounded-lg">CN</AvatarFallback> */}
                 <AvatarFallback className="rounded-lg">
-                  {user?.username?.charAt(0).toUpperCase()}
+                  {username?.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">
-                  {user?.username}
-                </span>
-                <span className="truncate text-xs">{user?.email}</span>
+                <span className="truncate font-semibold">{username}</span>
+                <span className="truncate text-xs">{email}</span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -66,28 +57,22 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg bg-gray-900">
-                  {/* <AvatarImage src={user.image} alt={user.username} /> */}
-                    <div className="px-2.5 py-.5 text-white text-lg">{user?.username?.charAt(0).toUpperCase()}</div>
+                  <div className="px-2.5 py-.5 text-white text-lg">
+                    {username?.charAt(0).toUpperCase()}
+                  </div>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">
-                    {user?.username}
-                  </span>
-                  <span className="truncate text-xs">{user?.email}</span>
+                  <span className="truncate font-semibold">{username}</span>
+                  <span className="truncate text-xs">{email}</span>
                 </div>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />
-              <a href="#" onClick={logout}>Log out</a>
+              <a href="#" onClick={logout}>
+                Log out
+              </a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -45,8 +45,9 @@ export const menuLinks: MenuLinks[] = [
 
 export type SessionPayload = {
   id: string;
-  name: string;
+  username: string;
   email: string;
+  expiresAt: string;
 };
 
 export type UserPayload = {

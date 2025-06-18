@@ -18,8 +18,8 @@ import { NavUser } from "./nav-user";
 import { redirect } from "next/navigation";
 
 export function AppSidebar() {
-  const user = useSession();
-  if (!user) {
+  const session = useSession();
+  if (!session) {
     // If user is not logged in, redirect to login page
     redirect("/login");
   }
@@ -58,7 +58,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user.user} />
+        <NavUser {...session.user} />
       </SidebarFooter>
     </Sidebar>
   );
