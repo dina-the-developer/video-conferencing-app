@@ -106,7 +106,7 @@ export async function currentSession() {
       id: user_id.payload.id as string,
       email: payload?.email as string,
       username: payload?.username as string,
-      expiresAt: payload?.expiresAt as Date,
+      expiresAt: payload?.expiresAt as string,
     }
     return user;
   } catch (error) {

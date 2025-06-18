@@ -5,9 +5,9 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 export default function UpcomingMeeting() {
   const client = useStreamVideoClient();
   const [calls, setCalls] = useState<Call[]>([]);
-  const now = new Date();
 
   useEffect(() => {
+    const now = new Date();
     const fetchCalls = async () => {
       if (!client) return;
       const result = await client.queryCalls({
@@ -25,7 +25,7 @@ export default function UpcomingMeeting() {
     };
 
     fetchCalls();
-  });
+  }, [client]);
 
   if (!calls) {
     return <div className="text-white">Loading...</div>;
