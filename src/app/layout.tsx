@@ -67,15 +67,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const payload = await currentSession();
-  const user = {
-    id: payload?.id as string,
-    email: payload?.email as string,
-    username: payload?.username as string,
-    expiresAt: payload?.expiresAt as Date,
-  };
+  console.log("Current session payload:", payload);
+
   return (
     <html lang="en">
-      <SessionProvider initialUser={user}>
+      <SessionProvider initialUser={payload ?? null}>
         <body className={`${workSans.variable}  antialiased`}>
           <Toaster />
           {children}
@@ -84,4 +80,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
