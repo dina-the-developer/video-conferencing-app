@@ -79,6 +79,11 @@ export async function updateSession() {
 // Destroy session function for logout.
 export async function destroySession() {
   const cookieStore = await cookies();
+  const session = await cookieStore.get("session")?.value;
+  if(!session){
+    console.log("No session found to destroy");
+    return;
+  }
   cookieStore.delete("session");
   redirect("/login");
 }
