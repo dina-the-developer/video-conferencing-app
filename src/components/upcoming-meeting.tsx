@@ -25,7 +25,7 @@ export default function UpcomingMeeting() {
     };
 
     fetchCalls();
-  }, [client]);
+  });
 
   if (!calls) {
     return <div className="text-white">Loading...</div>;
