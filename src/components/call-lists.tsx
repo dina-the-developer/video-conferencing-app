@@ -81,10 +81,10 @@ export default function CallLists({
               key={index}
               icon={
                 type === "previous"
-                  ? <StepBack />
+                  ? StepBack
                   : type === "upcoming"
-                  ? <StepForward />
-                  : <Disc />
+                  ? StepForward
+                  : Disc
               }
               title={
                 (meeting as Call).state?.custom?.description ||

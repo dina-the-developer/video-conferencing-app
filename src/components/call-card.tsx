@@ -12,9 +12,11 @@ export default function CallCard({
   buttonText,
   icon,
 }: CallCardProps) {
+  const Icon = icon;
+
   return (
     <div className="flex flex-col gap-3 p-4 bg-gray-800 text-white rounded shadow">
-      {icon}
+      <Icon className="w-5 h-5" />
       <h1 className="text-xl">{title}</h1>
       <h4 className="text-sm">{date}</h4>
       <div className="flex flex-col justify-between gap-3">
