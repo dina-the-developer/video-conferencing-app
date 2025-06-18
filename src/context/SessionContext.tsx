@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { SessionPayload } from '@/lib/definitions';
+import { SessionPayload } from '@/constants';
 
 interface SessionContextType {
   user: SessionPayload | null;

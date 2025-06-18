@@ -108,7 +108,6 @@ export async function currentSession() {
       username: payload?.username as string,
       expiresAt: payload?.expiresAt as Date,
     }
-    // console.log("User", user);
     return user;
   } catch (error) {
     console.log(error);
