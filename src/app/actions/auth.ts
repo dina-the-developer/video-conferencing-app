@@ -27,7 +27,7 @@ export async function signup(state: FormState, formData: FormData) {
   const { name, email, password } = validatedFields.data;
 
   // Create a new user in the db with the form data and return the user object.
-  const insertUser = await fetch("http://localhost:5000/api/users/register", {
+  const insertUser = await fetch("https://authentication-pi-sand.vercel.app/api/users/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export async function login(state: FormState, formData: FormData) {
 
   const { email, password } = validatedFields.data;
 
-  const checkUser = await fetch("http://localhost:5000/api/users/login", {
+  const checkUser = await fetch("https://authentication-pi-sand.vercel.app/api/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
