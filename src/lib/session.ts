@@ -15,8 +15,8 @@ export async function encryptPayload(payload: SessionPayload) {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setIssuer("https://video-conferencing-app-peach.vercel.app/")
-    .setAudience("https://video-conferencing-app-peach.vercel.app/")
+    .setIssuer("/")
+    .setAudience("/")
     .setExpirationTime("2h")
     .sign(encodedKey);
 }
