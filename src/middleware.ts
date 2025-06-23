@@ -11,12 +11,12 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path);
   const isPublicRoute = publicRoutes.includes(path);
 
-  console.log("Middleware Loading" + path);
+  // console.log("Middleware Loading" + path);
 
   const cookie = (await cookies()).get("session")?.value;
   const session = await decryptPayload(cookie);
 
-  console.log("Session in middleware:", session);
+  // console.log("Session in middleware:", session);
 
   // Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !session?.id) {

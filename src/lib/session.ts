@@ -32,7 +32,7 @@ export async function decryptPayload(session: string | undefined = "") {
     return payload;
   } catch (error) {
     console.log(error);
-    console.log("Failed to verify session");
+    // console.log("Failed to verify session");
   }
 }
 
@@ -94,6 +94,12 @@ export async function currentSession() {
   const payload = await decryptPayload(session);
 
   const id = payload?.id as string;
+
+  if (!id) {
+    // console.log("No user ID found in session");
+    return null;
+  }
+
   try {
     const user_id = await jwtVerify(id, cookieEncodedKey, {
       algorithms: ["HS256"],
@@ -111,6 +117,6 @@ export async function currentSession() {
     return user;
   } catch (error) {
     console.log(error);
-    console.log("Failed to verify session");
+    // console.log("Failed to verify session");
   }
 }

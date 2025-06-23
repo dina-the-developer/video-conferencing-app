@@ -67,7 +67,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const payload = await currentSession();
-  console.log("Current session payload:", payload);
 
   return (
     <html lang="en">

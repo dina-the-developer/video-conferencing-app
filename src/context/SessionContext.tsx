@@ -1,6 +1,6 @@
-'use client';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { SessionPayload } from '@/constants';
+"use client";
+import React, { createContext, useContext, useState, ReactNode } from "react";
+import { SessionPayload } from "@/constants";
 
 interface SessionContextType {
   user: SessionPayload | null;
@@ -18,6 +18,11 @@ export const SessionProvider = ({
 }) => {
   const [user, setUser] = useState(initialUser);
 
+  // Initialize user state with the initialUser prop
+  React.useEffect(() => {
+    setUser(initialUser);
+  }, [initialUser]);
+
   return (
     <SessionContext.Provider value={{ user, setUser }}>
       {children}
@@ -28,7 +33,7 @@ export const SessionProvider = ({
 export const useSession = (): SessionContextType => {
   const context = useContext(SessionContext);
   if (!context) {
-    throw new Error('useSession must be used within a SessionProvider');
+    throw new Error("useSession must be used within a SessionProvider");
   }
   return context;
 };

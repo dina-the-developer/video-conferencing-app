@@ -94,6 +94,6 @@ export async function login(state: FormState, formData: FormData) {
 }
 
 export async function logout() {
-  destroySession();
+  await destroySession();
   redirect("/login");
 }
