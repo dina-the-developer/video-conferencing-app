@@ -1,4 +1,5 @@
-# Video Conferencing App like Zoom
+# Video Conferencing App like Zoom!
+
 Developing enterprise-ready video conferencing app using Next.js, Stream API, and Tailwind CSS. For the authentication I am using custom API using 
 Express.js with MongoDB. 
 
@@ -23,7 +24,6 @@ If you using this code for your test project or trying to understand it. Please 
 - Shadcn UI components
 - Stream.io API for streaming audio and video
 - Tailwind CSS
-
 
 ## Features
 
@@ -75,36 +75,44 @@ Follow these steps to set up the project locally on your machine.
 
 Make sure you have the following installed on your machine:
 
-<a href="https://git-scm.com/" target="_blank">Git</a>
-<a href="https://nodejs.org/en" target="_blank">Node.js</a>
-<a href="https://www.npmjs.com/" target="_blank">npm</a> (Node Package Manager)
+- <a href="https://git-scm.com/" target="_blank">Git</a>
+- <a href="https://nodejs.org/en" target="_blank">Node.js</a>
+- <a href="https://www.npmjs.com/" target="_blank">npm</a> (Node Package Manager)
 
 <b>Cloning the Repository</b>
 
-`git clone https://github.com/adrianhajdin/zoom-clone.git`
-`cd zoom-clone`
+```
+git clone https://github.com/dina-the-developer/video-conferencing-app.git
+```
+```
+cd video-conferencing-app
+```
 
 <b>Installation</b>
 
 Install the project dependencies using npm:
 
-`npm install`
+```
+npm install 
+```
 
 <b>Set Up Environment Variables</b>
 
 Create a new file named .env in the root of your project and add the following content:
 
-`
+```
 NEXT_PUBLIC_STREAM_API_KEY=
 STREAM_API_SECRET=
 COOKIE_SECRET=
-`
+```
 
-Replace the placeholder values with your actual Clerk & getstream credentials. You can obtain these credentials by signing up on the Clerk website and <a href="getstream.io" target="_blank">getstream</a> website
+Replace the placeholder values with your actual getstream credentials. You can obtain these credentials by signing up on the <a href="getstream.io" target="_blank">getstream</a> website
 
 <b>Running the Project</b>
 
-`npm run dev`
+```
+npm run dev
+```
 
 Open http://localhost:3000 in your browser to view the project.
 
